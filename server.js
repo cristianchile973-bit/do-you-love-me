@@ -30,19 +30,22 @@ app.post("/guardar-respuesta", async (req, res) => {
     const accessToken = await oAuth2Client.getAccessToken();
 
     const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        type: "OAuth2",
-        user: process.env.EMAIL_USER,
-        clientId: process.env.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET,
-        refreshToken: process.env.REFRESH_TOKEN,
-        accessToken: accessToken.token,
-      },
-      tls: {
-        family: 4, // Fuerza IPv4
-      },
-    });
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    type: "OAuth2",
+    user: process.env.EMAIL_USER,
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    refreshToken: process.env.REFRESH_TOKEN,
+    accessToken: accessToken.token,
+  },
+  tls: {
+    rejectUnauthorized: false,
+    family: 4 // fuerza IPv4
+  }
+});
 
     await transporter.sendMail({
       from: `Formulario <${process.env.EMAIL_USER}>`,
