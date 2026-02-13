@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "script.js",
- "scripts": {
-  "start": "node server.js"
-},
+  "scripts": {
+    "start": "node server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cristianchile973-bit/do-you-love-me.git"
@@ -22,6 +22,7 @@
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "googleapis": "^171.4.0",
-    "nodemailer": "^8.0.1"
+    "nodemailer": "^8.0.1",
+    "resend": "^6.9.2"
   }
 }
