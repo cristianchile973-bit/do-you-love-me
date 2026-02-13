@@ -39,6 +39,9 @@ app.post("/guardar-respuesta", async (req, res) => {
         refreshToken: process.env.REFRESH_TOKEN,
         accessToken: accessToken.token,
       },
+      tls: {
+        family: 4, // Fuerza IPv4
+      },
     });
 
     await transporter.sendMail({
