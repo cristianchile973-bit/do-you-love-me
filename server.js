@@ -20,7 +20,7 @@ app.post("/guardar-respuesta", async (req, res) => {
     await resend.emails.send({
       from: "Formulario <onboarding@resend.dev>",
       to: process.env.EMAIL_TO,
-      subject: "Respuesta del formulario 💘",
+      subject: "Respuesta del formulario ",
       text: `La persona eligió: ${opcion}`,
     });
 
